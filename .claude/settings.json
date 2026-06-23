@@ -1,27 +1,15 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(bd:*)",
-      "Bash(git:*)",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
-      "Bash(sed:*)"
-    ]
-  },
-  "enabledMcpjsonServers": [
-    "beads"
-  ],
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "cat AGENTS.md"
+            "command": "bash .claude/hooks/mark-stale-worktree.sh"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/mark-stale-worktree.sh"
+            "command": "bd prime 2>/dev/null || true"
           }
         ]
       }
@@ -69,8 +57,5 @@
         ]
       }
     ]
-  },
-  "enabledPlugins": {
-    "beads@beads-marketplace": true
   }
 }
